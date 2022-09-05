@@ -22,3 +22,14 @@
   border-radius: 5px;
   padding: 10px 0px;
 }
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+  margin: 10px 0;
+}
+.completed {
+  text-decoration: line-through;
+  color: #ccc;
+}
