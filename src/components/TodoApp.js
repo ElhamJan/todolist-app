@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Navbar from "./Navbar";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);
+  const [selectedOption, setSelectedOption] = useState("All");
+
+  useEffect(() => {
+    filterTodos(selectedOption.value);
+  }, [todos, selectedOption]);
 
   const addTodoHandler = (inputVal) => {
     const newTodo = {
@@ -37,11 +44,35 @@ const TodoApp = () => {
     setTodos(updatedTodos);
   };
 
+  const filterTodos = (status) => {
+    switch (status) {
+      case "Completed":
+        setFilteredTodos(todos.filter((t) => t.isCompleted));
+        break;
+      case "Uncompleted":
+        setFilteredTodos(todos.filter((t) => !t.isCompleted));
+        break;
+      default:
+        setFilteredTodos(todos);
+    }
+  };
+
+  const selectHandler = (e) => {
+    setSelectedOption(e);
+    filterTodos(e.value);
+  };
+
   return (
     <div className="container">
+      <Navbar
+        unCompletedTodos={todos.filter((t) => !t.isCompleted).length}
+        filterTodos={filterTodos}
+        onChange={selectHandler}
+        selectedOption={selectedOption}
+      />
       <TodoForm addTodoHandler={addTodoHandler} />
       <TodoList
-        todos={todos}
+        todos={filteredTodos}
         onComplete={completeTodoHandler}
         onRemove={removeTodoHandler}
         onUpdate={updateTodoHandler}

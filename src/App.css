@@ -6,11 +6,9 @@
   margin-top: 20px;
   padding: 10px;
 }
-
 .App h1 {
   margin-bottom: 30px;
 }
-
 .container {
   background-color: #fff;
   display: flex;
@@ -22,24 +20,76 @@
   border-radius: 5px;
   padding: 10px 0px;
 }
-
 .todo {
   display: flex;
   justify-content: space-between;
   width: 20rem;
   margin: 10px 0;
 }
+.todoText {
+  cursor: pointer;
+  font-weight: bold;
+}
 .completed {
   text-decoration: line-through;
   color: #ccc;
 }
-
 input {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 5px 3px;
   outline: none;
+  width: 200px;
 }
 input:focus {
-  border: 1px solid blueviolet;
+  border: 2px solid blueviolet;
+}
+.formControl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20rem;
+  margin-bottom: 20px;
+}
+.btn {
+  background-color: #fff;
+  color: #6d28d9;
+  border: 1px solid #6d28d9;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.remove {
+  color: rgb(236, 68, 68);
+  border: 1px solid rgb(236, 68, 68);
+  margin-left: 10px;
+}
+.add {
+  background-color: #6d28d9;
+  color: #fff;
+}
+.update {
+  background-color: #fff;
+  color: #6d28d9;
+}
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+header span {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  font-size: 14px;
+  background-color: #d0c7f7;
+  color: #6d28d9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.select {
+  margin-left: 20px;
 }
